@@ -14,6 +14,10 @@
     .content{max-width:800px;margin:4rem auto;padding:2rem;text-align:center}
     .content h2{font-size:2rem;margin-bottom:1rem;color:#38bdf8}
     .content p{color:#94a3b8;margin-bottom:1.5rem}
+    .yt-card{margin-top:2rem;padding:2rem;background:#1e293b;border-radius:.75rem;box-shadow:0 4px 15px rgba(0,0,0,0.4)}
+    .yt-card h3{color:#ff4d4d;margin-bottom:1rem}
+    .btn{display:inline-block;background:#ff4d4d;color:#fff;padding:.8rem 1.5rem;border-radius:.5rem;text-decoration:none;font-weight:bold;transition:.3s}
+    .btn:hover{background:#e60000;transform:scale(1.05)}
     footer{background:#1e293b;text-align:center;padding:1rem;color:#64748b;margin-top:2rem}
   </style>
 </head>
@@ -32,10 +36,32 @@
     <p>Daybot is a modern, clean, and professional website example. 
     It demonstrates how HTML, CSS, and JavaScript can be combined to make a stunning responsive website.</p>
     <p>Our goal is to provide a simple but elegant template that you can use and customize for your own projects.</p>
+
+    <!-- YouTube Interactive Section -->
+    <div class="yt-card">
+      <h3>📺 Official YouTube Channel</h3>
+      <p id="ytName">Loading channel...</p>
+      <button class="btn" id="ytBtn">Visit Channel</button>
+    </div>
   </section>
 
   <footer>
     <p>© 2025 Daybot | Made with ❤️ by Me</p>
   </footer>
+
+  <script>
+    // Nama channel & link YouTube
+    const ytName = "Daybot";
+    const ytLink = "https://youtube.com/@daybotmu?si=F10iKqU8ZiEP6xXc";
+
+    // Tampilkan nama channel
+    document.getElementById("ytName").textContent = "YouTube: " + ytName;
+
+    // Event listener tombol
+    document.getElementById("ytBtn").addEventListener("click", function() {
+      alert("Opening Daybot YouTube channel 🚀");
+      window.open(ytLink, "_blank");
+    });
+  </script>
 </body>
 </html>
