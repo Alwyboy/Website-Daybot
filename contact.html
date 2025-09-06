@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Daybot - Contact</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;font-family:"Segoe UI",sans-serif}
+    body{background:#0f172a;color:#f1f5f9;line-height:1.6}
+    header{background:rgba(15,23,42,0.9);padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:1000;backdrop-filter:blur(6px)}
+    header h1{color:#38bdf8}
+    nav a{margin-left:1.5rem;text-decoration:none;color:#cbd5e1;transition:.3s}
+    nav a:hover{color:#38bdf8}
+    .contact{max-width:600px;margin:4rem auto;padding:2rem;background:#1e293b;border-radius:.75rem;box-shadow:0 4px 15px rgba(0,0,0,0.4)}
+    .contact h2{color:#38bdf8;margin-bottom:1rem;text-align:center}
+    label{display:block;margin:1rem 0 .5rem;color:#cbd5e1}
+    input,textarea{width:100%;padding:.8rem;border:none;border-radius:.5rem;margin-bottom:1rem;background:#0f172a;color:#f1f5f9}
+    button{background:#38bdf8;color:#0f172a;padding:.8rem 1.5rem;border:none;border-radius:.5rem;font-weight:bold;cursor:pointer;transition:.3s}
+    button:hover{background:#0ea5e9}
+    footer{background:#1e293b;text-align:center;padding:1rem;color:#64748b;margin-top:2rem}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Daybot</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <section class="contact">
+    <h2>Contact Us 📩</h2>
+    <form>
+      <label for="name">Name</label>
+      <input type="text" id="name" placeholder="Your name" required>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" placeholder="Your email" required>
+
+      <label for="message">Message</label>
+      <textarea id="message" rows="5" placeholder="Your message"></textarea>
+
+      <button type="submit">Send</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>© 2025 Daybot | Made with ❤️ by Me</p>
+  </footer>
+</body>
+</html>
