@@ -34,7 +34,7 @@
 </header>
 
 <style>
-/* Header sejajar horizontal */
+/* Header style */
 .site-header {
   background: rgba(15, 23, 42, 0.95);
   padding: 1rem 2rem;
@@ -45,30 +45,32 @@
   box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
 
-/* Navbar sejajar */
+/* Navbar sejajar horizontal */
 .site-nav {
   display: flex;
   align-items: center;
-  gap: 2rem; /* jarak antar item */
-  justify-content: center; /* semuanya rata tengah */
+  justify-content: center; /* semua item rata tengah */
+  flex-wrap: wrap; /* biar di HP bisa turun kalau kepanjangan */
+  gap: 1.5rem;
 }
 
-/* Logo (Daybot) */
-.logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #38bdf8;
-}
-
-/* Link */
+/* Link style umum */
 .site-nav a {
   text-decoration: none;
   color: #cbd5e1;
   position: relative;
-  transition: color 0.3s;
+  transition: color 0.3s, font-size 0.3s;
+  font-size: 1rem;
 }
 
-/* Hover efek underline */
+/* Logo khusus */
+.site-nav .logo {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #38bdf8;
+}
+
+/* Hover animasi (di PC) */
 .site-nav a::after {
   content: "";
   position: absolute;
@@ -87,7 +89,33 @@
 .site-nav a:hover::after {
   width: 100%;
 }
+
+/* RESPONSIVE DESIGN */
+
+/* Tablet */
+@media (max-width: 900px) {
+  .site-nav a {
+    font-size: 0.95rem;
+  }
+  .site-nav .logo {
+    font-size: 1.2rem;
+  }
+}
+
+/* HP */
+@media (max-width: 600px) {
+  .site-nav {
+    gap: 1rem;
+  }
+  .site-nav a {
+    font-size: 0.9rem;
+  }
+  .site-nav .logo {
+    font-size: 1rem;
+  }
+}
 </style>
+  
 
   <section class="hero">
     <h2>Halo Daybot disini🤖</h2>
