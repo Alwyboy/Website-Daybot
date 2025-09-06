@@ -34,11 +34,12 @@
 </header>
 
 <style>
-/* Layout header dengan Flexbox */
+/* Header layout sejajar */
 .site-header {
   display: flex;
-  justify-content: space-between; /* logo kiri, navbar kanan */
-  align-items: center;
+  align-items: center;       /* semua elemen sejajar vertikal */
+  justify-content: flex-start; /* logo di kiri, link mengikuti */
+  gap: 2rem;                  /* jarak antar elemen */
   padding: 1rem 2rem;
   background: rgba(15, 23, 42, 0.95);
   position: sticky;
@@ -56,9 +57,14 @@
   cursor: default;
 }
 
-/* Navbar */
+/* Navbar links */
+.site-nav {
+  display: flex;
+  gap: 1.5rem; /* jarak antar link */
+  margin-left: auto; /* dorong ke kanan */
+}
+
 .site-nav a {
-  margin-left: 1.5rem;
   text-decoration: none;
   color: #cbd5e1;
   position: relative;
@@ -85,17 +91,19 @@
   width: 100%;
 }
 
-/* Responsif untuk mobile */
+/* Responsif */
 @media (max-width: 600px) {
   .site-header {
     flex-direction: column;
     align-items: flex-start;
   }
   .site-nav {
+    margin-left: 0;
     margin-top: 0.5rem;
   }
 }
 </style>
+
 
   <section class="hero">
     <h2>Halo Daybot disini🤖</h2>
