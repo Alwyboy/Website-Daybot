@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Daybot - Home</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth;font-family:"Segoe UI",sans-serif}
+    body{background:#0f172a;color:#f1f5f9;line-height:1.6}
+    header{background:rgba(15,23,42,0.9);padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:1000;backdrop-filter:blur(6px)}
+    header h1{color:#38bdf8}
+    nav a{margin-left:1.5rem;text-decoration:none;color:#cbd5e1;transition:.3s}
+    nav a:hover{color:#38bdf8}
+    .hero{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:90vh;text-align:center;padding:2rem}
+    .hero h2{font-size:2.5rem;margin-bottom:1rem;color:#e2e8f0}
+    .hero p{max-width:600px;margin-bottom:2rem;color:#94a3b8}
+    .btn{background:#38bdf8;color:#0f172a;padding:.8rem 1.5rem;border-radius:.5rem;text-decoration:none;font-weight:bold;transition:.3s}
+    .btn:hover{background:#0ea5e9;transform:scale(1.05)}
+    .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem;padding:4rem 2rem}
+    .card{background:#1e293b;padding:2rem;border-radius:.75rem;box-shadow:0 4px 15px rgba(0,0,0,0.4);text-align:center}
+    .card h3{margin-bottom:1rem;color:#38bdf8}
+    footer{background:#1e293b;text-align:center;padding:1rem;color:#64748b;margin-top:2rem}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Daybot</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>Welcome to Daybot 🚀</h2>
+    <p>Your modern, stylish, and responsive website with smooth animations. Built to look professional and fast on any device.</p>
+    <a href="#features" class="btn">Explore Features</a>
+  </section>
+
+  <section id="features" class="features">
+    <div class="card">
+      <h3>⚡ Fast</h3>
+      <p>Optimized for speed and performance across devices.</p>
+    </div>
+    <div class="card">
+      <h3>🎨 Stylish</h3>
+      <p>Dark theme with smooth animations and modern design.</p>
+    </div>
+    <div class="card">
+      <h3>📱 Responsive</h3>
+      <p>Looks amazing on desktop, tablet, and mobile devices.</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Daybot | Made with ❤️ by Me</p>
+  </footer>
+</body>
+</html>
