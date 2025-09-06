@@ -40,19 +40,54 @@
   </section>
 
   <section id="features" class="features">
-    <div class="card">
-      <h3>YouTube</h3>
-      <p>izinkan aku mengakses live chat di YouTube mu.</p>
-    </div>
-    <div class="card">
-      <h3>Tiktok</h3>
-      <p>cooming soon</p>
-    </div>
-    <div class="card">
-      <h3>Twitch</h3>
-      <p>cooming soon</p>
-    </div>
-  </section>
+  <div class="card">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" alt="YouTube" class="card-logo">
+    <h3>YouTube</h3>
+    <p>Izinkan aku mengakses live chat di YouTube mu.</p>
+  </div>
+
+  <div class="card">
+    <img src="https://upload.wikimedia.org/wikipedia/en/a/a9/TikTok_logo.svg" alt="TikTok" class="card-logo">
+    <h3>TikTok</h3>
+    <p>Coming soon</p>
+  </div>
+
+  <div class="card">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/5/56/Twitch_logo.svg" alt="Twitch" class="card-logo">
+    <h3>Twitch</h3>
+    <p>Coming soon</p>
+  </div>
+</section>
+
+<style>
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  padding: 4rem 2rem;
+}
+
+.card {
+  background: #1e293b;
+  padding: 2rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+}
+
+.card-logo {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
+</style>
 
   <footer>
     <p>© 2025 Daybot | Made with by Daybot 🤖</p>
