@@ -23,9 +23,12 @@
   </style>
 </head>
 <body>
- <header>
-  <h1>Daybot</h1>
-  <nav>
+
+<header class="site-header">
+  <div class="logo">
+    <h1>Daybot</h1>
+  </div>
+  <nav class="site-nav">
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
@@ -33,12 +36,13 @@
 </header>
 
 <style>
-header {
-  background: rgba(15, 23, 42, 0.95);
-  padding: 1rem 2rem;
-  display: flex;
-  justify-content: space-between;
+/* Layout Header dengan Grid */
+.site-header {
+  display: grid;
+  grid-template-columns: auto 1fr;
   align-items: center;
+  padding: 1rem 2rem;
+  background: rgba(15, 23, 42, 0.95);
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -46,13 +50,19 @@ header {
   box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
 
-header h1 {
+/* Logo */
+.logo h1 {
   color: #38bdf8;
   font-size: 1.5rem;
-  cursor: default;
+  margin: 0;
 }
 
-nav a {
+/* Navbar */
+.site-nav {
+  justify-self: end; /* taruh di kanan */
+}
+
+.site-nav a {
   margin-left: 1.5rem;
   text-decoration: none;
   color: #cbd5e1;
@@ -60,8 +70,8 @@ nav a {
   transition: color 0.3s;
 }
 
-/* Hover efek: underline animasi */
-nav a::after {
+/* Hover efek underline */
+.site-nav a::after {
   content: "";
   position: absolute;
   width: 0%;
@@ -72,15 +82,26 @@ nav a::after {
   transition: width 0.3s;
 }
 
-nav a:hover {
+.site-nav a:hover {
   color: #38bdf8;
 }
 
-nav a:hover::after {
+.site-nav a:hover::after {
   width: 100%;
 }
+
+/* Responsive untuk layar kecil */
+@media (max-width: 600px) {
+  .site-header {
+    grid-template-columns: 1fr;
+    grid-row-gap: 0.5rem;
+    justify-items: center;
+  }
+  .site-nav {
+    justify-self: center;
+  }
+}
 </style>
-  
 
   <section class="hero">
     <h2>Halo Daybot disini🤖</h2>
