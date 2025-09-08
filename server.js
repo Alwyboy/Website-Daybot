@@ -8,9 +8,9 @@ app.get("/oauth2callback", async (req, res) => {
 
   const data = {
     code: code,
-    client_id: "259178030619-tgeb522ah72mk2mcq6c894kdkk9ej133.apps.googleusercontent.com",
-    client_secret: "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",
-    redirect_uri: "http://localhost:3000/oauth2callback",
+    client_id: "124668661699-3c6k0ti21hfvvg3rqvi133v50he0dt2g.apps.googleusercontent.com",
+    client_secret: "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",
+    redirect_uri: "https://website-daybot-fm1aw4hne-haddatalwi21-3696s-projects.vercel.app",
     grant_type: "authorization_code"
   };
 
