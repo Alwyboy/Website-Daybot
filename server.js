@@ -8,8 +8,8 @@ app.get("/oauth2callback", async (req, res) => {
 
   const data = {
     code: code,
-    client_id: "YOUR_CLIENT_ID.apps.googleusercontent.com",
-    client_secret: "YOUR_CLIENT_SECRET",
+    client_id: "259178030619-tgeb522ah72mk2mcq6c894kdkk9ej133.apps.googleusercontent.com",
+    client_secret: "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",
     redirect_uri: "http://localhost:3000/oauth2callback",
     grant_type: "authorization_code"
   };
