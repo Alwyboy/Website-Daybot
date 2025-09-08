@@ -14,185 +14,77 @@
     .hero{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:90vh;text-align:center;padding:2rem}
     .hero h2{font-size:2.5rem;margin-bottom:1rem;color:#e2e8f0}
     .hero p{max-width:600px;margin-bottom:2rem;color:#94a3b8}
-    .btn{background:#38bdf8;color:#0f172a;padding:.8rem 1.5rem;border-radius:.5rem;text-decoration:none;font-weight:bold;transition:.3s}
+    .btn{background:#38bdf8;color:#0f172a;padding:.8rem 1.5rem;border-radius:.5rem;text-decoration:none;font-weight:bold;transition:.3s;cursor:pointer;border:none}
     .btn:hover{background:#0ea5e9;transform:scale(1.05)}
     .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem;padding:4rem 2rem}
-    .card{background:#1e293b;padding:2rem;border-radius:.75rem;box-shadow:0 4px 15px rgba(0,0,0,0.4);text-align:center}
-    .card h3{margin-bottom:1rem;color:#38bdf8}
+    .card{background:#1e293b;padding:2rem;border-radius:.75rem;box-shadow:0 4px 15px rgba(0,0,0,0.4);text-align:center;transition:transform 0.3s, box-shadow 0.3s;}
+    .card:hover{transform:translateY(-10px);box-shadow:0 8px 20px rgba(0,0,0,0.5);}
+    .card-logo{width:60px;height:60px;object-fit:contain;margin-bottom:1rem;}
     footer{background:#1e293b;text-align:center;padding:1rem;color:#64748b;margin-top:2rem}
   </style>
 </head>
 <body>
 
 <header>
-    <h1>Daybot</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </header>
+  <h1>Daybot</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
 
-<style>
-/* Header style */
-.site-header {
-  background: rgba(15, 23, 42, 0.95);
-  padding: 1rem 2rem;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  backdrop-filter: blur(6px);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-}
+<section class="hero">
+  <h2>Halo Daybot disini🤖</h2>
+  <p> Mau aku temani di live streams?</p>
+  <p> Oke klik dibawah 👇</p>
+  <a href="#features" class="btn">Explore Features</a>
+</section>
 
-/* Navbar sejajar horizontal */
-.site-nav {
-  display: flex;
-  align-items: center;
-  justify-content: center; /* semua item rata tengah */
-  flex-wrap: wrap; /* biar di HP bisa turun kalau kepanjangan */
-  gap: 1.5rem;
-}
-
-/* Link style umum */
-.site-nav a {
-  text-decoration: none;
-  color: #cbd5e1;
-  position: relative;
-  transition: color 0.3s, font-size 0.3s;
-  font-size: 1rem;
-}
-
-/* Logo khusus */
-.site-nav .logo {
-  font-size: 1.3rem;
-  font-weight: bold;
-  color: #38bdf8;
-}
-
-/* Hover animasi (di PC) */
-.site-nav a::after {
-  content: "";
-  position: absolute;
-  width: 0%;
-  height: 2px;
-  bottom: -3px;
-  left: 0;
-  background-color: #38bdf8;
-  transition: width 0.3s;
-}
-
-.site-nav a:hover {
-  color: #38bdf8;
-}
-
-.site-nav a:hover::after {
-  width: 100%;
-}
-
-/* RESPONSIVE DESIGN */
-
-/* Tablet */
-@media (max-width: 900px) {
-  .site-nav a {
-    font-size: 0.95rem;
-  }
-  .site-nav .logo {
-    font-size: 1.2rem;
-  }
-}
-
-/* HP */
-@media (max-width: 600px) {
-  .site-nav {
-    gap: 1rem;
-  }
-  .site-nav a {
-    font-size: 0.9rem;
-  }
-  .site-nav .logo {
-    font-size: 1rem;
-  }
-}
-</style>
-  
-
-  <section class="hero">
-    <h2>Halo Daybot disini🤖</h2>
-    <p> mau aku temani di live streams?</p>
-    <p> oke klik dibawah 👇</p>
-    <a href="#features" class="btn">Explore Features</a>
-  </section>
-
-  <section id="features" class="features">
+<section id="features" class="features">
+  <!-- YouTube Card -->
   <div class="card">
     <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" alt="YouTube" class="card-logo">
     <h3>YouTube</h3>
     <p>Izinkan aku mengakses live chat di YouTube mu.</p>
-    <button id="login">Login dengan Google</button>
+    <button class="btn" onclick="loginYouTube()">Login dengan Google</button>
   </div>
-</section>
 
-<script>
-  document.getElementById("login").addEventListener("click", () => {
-    const client_id = "CLIENT_ID";
-    const redirect_uri = "https://website-daybot-fm1aw4hne-haddatalwi21-3696s-projects.vercel.app";
-    const scope = "https://www.googleapis.com/auth/youtube.force-ssl";
-    const response_type = "code";
-    const access_type = "offline"; // <== penting untuk dapat refresh_token
-    const prompt = "consent";      // <== paksa refresh_token diberikan
-
-    const authUrl = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${client_id}&redirect_uri=${redirect_uri}&response_type=${response_type}&scope=${scope}&access_type=${access_type}&prompt=${prompt}`;
-    
-    window.location = authUrl;
-  });
-</script>
-
+  <!-- TikTok Card -->
   <div class="card">
     <img src="https://upload.wikimedia.org/wikipedia/en/a/a9/TikTok_logo.svg" alt="TikTok" class="card-logo">
     <h3>TikTok</h3>
     <p>Coming soon</p>
+    <button class="btn" disabled>Login TikTok</button>
   </div>
 
+  <!-- Twitch Card -->
   <div class="card">
     <img src="https://upload.wikimedia.org/wikipedia/commons/5/56/Twitch_logo.svg" alt="Twitch" class="card-logo">
     <h3>Twitch</h3>
     <p>Coming soon</p>
+    <button class="btn" disabled>Login Twitch</button>
   </div>
 </section>
 
-<style>
-.features {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  padding: 4rem 2rem;
-}
+<script>
+function loginYouTube() {
+  const client_id = "124668661699-3c6k0ti21hfvvg3rqvi133v50he0dt2g.apps.googleusercontent.com";
+  const redirect_uri = "https://website-daybot-fm1aw4hne-haddatalwi21-3696s-projects.vercel.app"; 
+  const scope = "https://www.googleapis.com/auth/youtube.force-ssl";
+  const response_type = "code";
+  const access_type = "offline"; // penting: untuk dapat refresh_token
+  const prompt = "consent";      // paksa refresh_token diberikan
 
-.card {
-  background: #1e293b;
-  padding: 2rem;
-  border-radius: 0.75rem;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-  text-align: center;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
+  const authUrl = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${client_id}&redirect_uri=${redirect_uri}&response_type=${response_type}&scope=${scope}&access_type=${access_type}&prompt=${prompt}`;
 
-.card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+  window.location.href = authUrl;
 }
+</script>
 
-.card-logo {
-  width: 60px;
-  height: 60px;
-  object-fit: contain;
-  margin-bottom: 1rem;
-}
-</style>
+<footer>
+  <p>© 2025 Daybot | Made with ❤️ by Daybot 🤖</p>
+</footer>
 
-  <footer>
-    <p>© 2025 Daybot | Made with by Daybot 🤖</p>
-  </footer>
 </body>
 </html>
