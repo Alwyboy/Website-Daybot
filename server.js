@@ -9,7 +9,7 @@ app.get("/oauth2callback", async (req, res) => {
   const data = {
     code: code,
     client_id: "124668661699-3c6k0ti21hfvvg3rqvi133v50he0dt2g.apps.googleusercontent.com",
-    client_secret: "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",
+    client_secret: "CLIENT_SECRET",
     redirect_uri: "https://website-daybot-fm1aw4hne-haddatalwi21-3696s-projects.vercel.app",
     grant_type: "authorization_code"
   };
