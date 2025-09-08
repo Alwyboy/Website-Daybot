@@ -129,7 +129,24 @@
     <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" alt="YouTube" class="card-logo">
     <h3>YouTube</h3>
     <p>Izinkan aku mengakses live chat di YouTube mu.</p>
+    <button id="login">Login dengan Google</button>
   </div>
+</section>
+
+<script>
+  document.getElementById("login").addEventListener("click", () => {
+    const client_id = "YOUR_CLIENT_ID.apps.googleusercontent.com";
+    const redirect_uri = "http://localhost:3000/oauth2callback";
+    const scope = "https://www.googleapis.com/auth/youtube.force-ssl";
+    const response_type = "code";
+    const access_type = "offline"; // <== penting untuk dapat refresh_token
+    const prompt = "consent";      // <== paksa refresh_token diberikan
+
+    const authUrl = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${client_id}&redirect_uri=${redirect_uri}&response_type=${response_type}&scope=${scope}&access_type=${access_type}&prompt=${prompt}`;
+    
+    window.location = authUrl;
+  });
+</script>
 
   <div class="card">
     <img src="https://upload.wikimedia.org/wikipedia/en/a/a9/TikTok_logo.svg" alt="TikTok" class="card-logo">
