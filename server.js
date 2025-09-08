@@ -1,29 +1,57 @@
-import express from "express";
-import fetch from "node-fetch";
+const express = require("express");
+const axios = require("axios");
+const qs = require("querystring");
 
 const app = express();
+const port = 3000;
 
-app.get("/oauth2callback", async (req, res) => {
-  const code = req.query.code;
+// ---- Ganti sesuai Google Cloud ----
+const CLIENT_ID = "YOUR_CLIENT_ID";
+const CLIENT_SECRET = "YOUR_CLIENT_SECRET";
+const REDIRECT_URI = "http://localhost:3000/callback";
+const SCOPE = "https://www.googleapis.com/auth/youtube.readonly";
 
-  const data = {
-    code: code,
-    client_id: "124668661699-3c6k0ti21hfvvg3rqvi133v50he0dt2g.apps.googleusercontent.com",
-    client_secret: "CLIENT_SECRET",
-    redirect_uri: "https://website-daybot-fm1aw4hne-haddatalwi21-3696s-projects.vercel.app",
-    grant_type: "authorization_code"
-  };
-
-  const response = await fetch("https://oauth2.googleapis.com/token", {
-    method: "POST",
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: new URLSearchParams(data)
-  });
-
-  const tokens = await response.json();
-  console.log(tokens); // <- di sini ada refresh_token
-
-  res.send("Token sudah didapat! Cek console server.");
+// 1. Endpoint awal -> arahkan user ke Google OAuth
+app.get("/", (req, res) => {
+  const authUrl = `https://accounts.google.com/o/oauth2/v2/auth?${qs.stringify({
+    client_id: CLIENT_ID,
+    redirect_uri: REDIRECT_URI,
+    response_type: "code",
+    scope: SCOPE,
+    access_type: "offline",
+    prompt: "consent",
+  })}`;
+  res.send(`<a href="${authUrl}">Login with Google</a>`);
 });
 
-app.listen(3000, () => console.log("Server jalan di http://localhost:3000"));
+// 2. Callback dari Google -> tukar code jadi access_token
+app.get("/callback", async (req, res) => {
+  const code = req.query.code;
+  try {
+    const response = await axios.post(
+      "https://oauth2.googleapis.com/token",
+      qs.stringify({
+        code,
+        client_id: CLIENT_ID,
+        client_secret: CLIENT_SECRET,
+        redirect_uri: REDIRECT_URI,
+        grant_type: "authorization_code",
+      }),
+      { headers: { "Content-Type": "application/x-www-form-urlencoded" } }
+    );
+
+    const tokens = response.data;
+    console.log("Tokens:", tokens);
+
+    res.send(`
+      <h1>Access Token Diterima ✅</h1>
+      <pre>${JSON.stringify(tokens, null, 2)}</pre>
+    `);
+  } catch (err) {
+    res.send("Error: " + err.message);
+  }
+});
+
+app.listen(port, () => {
+  console.log(`Server jalan di http://localhost:${port}`);
+});
